@@ -29,22 +29,19 @@ function Carousel() {
 
   return (
     <div className="carousel-container">
-      <div className="carousel-wrapper">
-        <div className="carousel-slide">
-          <img src={banner.imageURL} alt={banner.title} />
-          <div className="carousel-overlay"></div>
-          <div className="carousel-content">
-            <h1 className="carousel-title">{banner.title}</h1>
-            <p className="carousel-caption">{banner.caption}</p>
-          </div>
+      <div className="carousel">
+        <img src={banner.imageURL} alt={banner.title} className="carousel-image" />
+        <div className="carousel-content">
+          <h2>{banner.title}</h2>
+          <p>{banner.caption}</p>
         </div>
 
         {/* Navigation Buttons */}
-        <button className="carousel-btn prev-btn" onClick={prevSlide}>
-          ❮
+        <button className="carousel-btn prev" onClick={prevSlide}>
+          &#10094;
         </button>
-        <button className="carousel-btn next-btn" onClick={nextSlide}>
-          ❯
+        <button className="carousel-btn next" onClick={nextSlide}>
+          &#10095;
         </button>
 
         {/* Dots Navigation */}

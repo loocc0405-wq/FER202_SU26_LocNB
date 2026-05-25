@@ -17,7 +17,7 @@ function Pizza({ pizza }) {
                 />
                 {pizza.tag && <Badge bg="danger" className="pizza-badge">{pizza.tag}</Badge>}
             </div>
-            <Card.Body style={{ padding: '10px' }}>
+            <Card.Body className="pizza-card-body">
                 <Card.Title className="pizza-name">{pizza.name}</Card.Title>
                 
                 <Card.Text className="pizza-description">
