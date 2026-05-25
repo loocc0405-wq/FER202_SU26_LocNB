@@ -1,0 +1,384 @@
+/* ============================
+   MyModal - Premium Pizza Detail Modal
+   ============================ */
+
+/* Overlay backdrop */
+.pizza-modal .modal-backdrop {
+  backdrop-filter: blur(6px);
+}
+
+.pizza-modal .modal-content {
+  border: none;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(47, 42, 74, 0.25), 0 8px 24px rgba(92, 58, 255, 0.1);
+  background: linear-gradient(165deg, #ffffff 0%, #faf8ff 100%);
+}
+
+/* Header */
+.pizza-modal .modal-header {
+  background: linear-gradient(135deg, #5c3aff 0%, #8b5cf6 50%, #a78bfa 100%);
+  border-bottom: none;
+  padding: 18px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pizza-modal .modal-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.pizza-modal .modal-title {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pizza-modal .modal-header .btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.pizza-modal .modal-header .btn-close:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* Body */
+.pizza-modal .modal-body {
+  padding: 0;
+}
+
+/* Image section */
+.modal-pizza-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.modal-pizza-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.modal-pizza-image-wrapper:hover img {
+  transform: scale(1.04);
+}
+
+.modal-pizza-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  animation: tagPulse 2s infinite ease-in-out;
+}
+
+.modal-pizza-tag.sale { background: linear-gradient(135deg, #ef4444, #f97316); }
+.modal-pizza-tag.new { background: linear-gradient(135deg, #10b981, #34d399); }
+.modal-pizza-tag.hot { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.modal-pizza-tag.best-seller { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
+.modal-pizza-tag.default { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+
+@keyframes tagPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+/* Content area */
+.modal-pizza-content {
+  padding: 24px 28px 20px;
+}
+
+/* Description */
+.modal-pizza-description {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4a4a6a;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+  border-radius: 14px;
+  border-left: 4px solid #8b5cf6;
+  position: relative;
+}
+
+.modal-pizza-description::before {
+  content: '📝';
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  font-size: 18px;
+  background: #f5f3ff;
+  padding: 0 6px;
+  border-radius: 6px;
+}
+
+/* Detail grid */
+.modal-pizza-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 1px solid rgba(139, 92, 246, 0.12);
+  transition: all 0.25s ease;
+}
+
+.detail-item:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.08);
+  transform: translateY(-1px);
+}
+
+.detail-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.detail-icon.price { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+.detail-icon.id { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+.detail-icon.category { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+.detail-icon.rating { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 11px;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+}
+
+.detail-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1f2138;
+}
+
+/* Price section */
+.modal-price-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, #5c3aff 0%, #8b5cf6 100%);
+  border-radius: 16px;
+  margin-bottom: 8px;
+}
+
+.modal-price-label {
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.modal-price-values {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-original-price {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.modal-sale-price {
+  font-size: 26px;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.modal-discount-badge {
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+}
+
+/* Ingredients section */
+.modal-ingredients {
+  margin-bottom: 20px;
+}
+
+.modal-ingredients-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2f2a4a;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ingredient-chip {
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5b21b6;
+  transition: all 0.2s ease;
+}
+
+.ingredient-chip:hover {
+  background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Footer */
+.pizza-modal .modal-footer {
+  border-top: 1px solid rgba(139, 92, 246, 0.08);
+  padding: 16px 28px;
+  background: #faf8ff;
+  display: flex;
+  gap: 12px;
+}
+
+.modal-close-btn {
+  flex: 1;
+  padding: 12px 20px;
+  background: #e5e7eb;
+  color: #4b5563;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-close-btn:hover {
+  background: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.modal-order-btn {
+  flex: 2;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #5c3aff 0%, #8b5cf6 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 24px rgba(92, 58, 255, 0.25);
+}
+
+.modal-order-btn:hover {
+  background: linear-gradient(135deg, #4c2ee6 0%, #7c4dff 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(92, 58, 255, 0.35);
+}
+
+.modal-order-btn:active {
+  transform: translateY(0);
+}
+
+/* Animations */
+.pizza-modal .modal-dialog {
+  animation: modalSlideIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Stars */
+.star-rating {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  color: #fbbf24;
+  font-size: 14px;
+}
+
+.star.empty {
+  color: #d1d5db;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .modal-pizza-details {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-pizza-content {
+    padding: 18px 20px 14px;
+  }
+  
+  .modal-pizza-image-wrapper {
+    height: 200px;
+  }
+}

@@ -93,7 +93,7 @@
   color: #ff5a5f;
 }
 
-.add-to-cart-btn {
+.view-details-btn {
   width: 100%;
   padding: 12px 14px;
   background: #5c3aff;
@@ -108,13 +108,13 @@
   letter-spacing: 0.4px;
 }
 
-.add-to-cart-btn:hover {
+.view-details-btn:hover {
   background: #704bff;
   transform: translateY(-1px);
   box-shadow: 0 14px 30px rgba(92, 58, 255, 0.18);
 }
 
-.add-to-cart-btn:active {
+.view-details-btn:active {
   transform: translateY(0);
 }
 

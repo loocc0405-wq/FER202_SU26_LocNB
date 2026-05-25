@@ -2,13 +2,17 @@
 // imageUrl, orignalPrices, salePrice, tag
 // Hiển thị thông tin pizza trong một card, sử dụng react-bootstrap để tạo card đẹp mắt, và dễ đọc
 //css cho card để nó có nền sáng, chữ màu tối và được căn giữa
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Badge } from 'react-bootstrap';
+import MyModal from './MyModal';
 import './Pizza.css';
 
 function Pizza({ pizza }) {
+    const [showModal, setShowModal] = useState(false);
+
     return (
-        <Card className="pizza-card">
+        <>
+            <Card className="pizza-card">
             <div className="card-image-wrapper">
                 <Card.Img 
                     variant="top" 
@@ -35,9 +39,14 @@ function Pizza({ pizza }) {
                     </span>
                 </div>
                 
-                <button className="add-to-cart-btn">Add to Cart</button>
+                <button className="view-details-btn" onClick={() => setShowModal(true)}>
+                    View Details
+                </button>
             </Card.Body>
         </Card>
+
+            <MyModal show={showModal} onHide={() => setShowModal(false)} pizza={pizza} />
+        </>
     );
 }
 
